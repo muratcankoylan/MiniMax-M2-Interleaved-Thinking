@@ -71,6 +71,27 @@ This matches MiniMax’s recommended API usage (`extra_body={"reasoning_split": 
 
 Add more by editing the `SCENARIOS` dict in `demo_runner.py`.
 
+### Tooling Surface
+
+M2's interleaved thinking shines with tool use. The demo exposes three function tools that the model can call:
+
+| Tool | Purpose | Data Source |
+| --- | --- | --- |
+| `get_design_tokens` | Fetch design-system tokens (colors, typography, spacing, shadows, border radius, breakpoints) | `design_system.md` |
+| `get_component_spec` | Return specifications for UI components (Button, Card, Input, Modal, Alert) | `component_specs.md` |
+| `get_pattern_guidance` | Look up development patterns and conventions (composition, naming, testing, etc.) | `code_patterns.md` |
+
+M2's function calling works with both OpenAI-compatible and Anthropic-compatible APIs. After each tool result, M2 explicitly thinks about what it learned and adapts its strategy—unlike linear models that plan all tools upfront.
+
+**Why this matters:**
+- If a tool returns unexpected data (e.g., incomplete component spec), M2 adapts
+- No wasted tokens on unnecessary tool calls
+- Transparent reasoning: every decision is logged in `reasoning_details`
+- Perfect for debugging and exploration workflows
+
+
+
+
 ---
 
 ## Getting Started
@@ -180,32 +201,11 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-MiniMax-M2’s interleaved thinking thrives when we can show every decision, every tool call, and every dollar saved. This project keeps that loop visible—ready for open-source contributions, demos, and competitive benchmarks. Have fun building. 🙌
-
-## Extending
-
 - Add new scenarios to `SCENARIOS` in `demo_runner.py`.
 - Register additional tools in `tools.py` and expose them through `build_tools_spec`.
 - Point the tool implementations at different documents if you want to showcase other workflows (API docs, test logs, etc.).
 
 This minimal surface keeps the **interleaved loop** visible while still exercising multiple tool calls grounded in the project’s own artifacts. Use it for demos or regression tests when you update your toolset.
 
-### Tooling Surface
 
-M2's interleaved thinking shines with tool use. The demo exposes three function tools that the model can call:
-
-| Tool | Purpose | Data Source |
-| --- | --- | --- |
-| `get_design_tokens` | Fetch design-system tokens (colors, typography, spacing, shadows, border radius, breakpoints) | `design_system.md` |
-| `get_component_spec` | Return specifications for UI components (Button, Card, Input, Modal, Alert) | `component_specs.md` |
-| `get_pattern_guidance` | Look up development patterns and conventions (composition, naming, testing, etc.) | `code_patterns.md` |
-
-M2's function calling works with both OpenAI-compatible and Anthropic-compatible APIs. After each tool result, M2 explicitly thinks about what it learned and adapts its strategy—unlike linear models that plan all tools upfront.
-
-**Why this matters:**
-- If a tool returns unexpected data (e.g., incomplete component spec), M2 adapts
-- No wasted tokens on unnecessary tool calls
-- Transparent reasoning: every decision is logged in `reasoning_details`
-- Perfect for debugging and exploration workflows
-
-
+MiniMax-M2’s interleaved thinking thrives when we can show every decision, every tool call, and every dollar saved. This project keeps that loop visible—ready for open-source contributions, demos, and competitive benchmarks. Have fun building. 🙌
