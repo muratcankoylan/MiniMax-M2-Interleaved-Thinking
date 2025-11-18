@@ -1,6 +1,7 @@
 # Interleaved MiniMax Demo
 
-`interleaved_minimax` is a transparent, reproducible harness for showcasing MiniMax-M2’s interleaved thinking on real design-system artifacts. The project distills what we learned while building context-aware agents for front-end teams: keep the loop observable, keep the tooling grounded, and quantify efficiency against other LLMs.
+Interactive demo showcasing MiniMax-M2's interleaved thinking for agentic workflows, demonstrating adaptive strategy after each tool call with transparent traces and cost benchmarking.
+ The project distills what we learned while building context-aware agents for front-end teams: keep the loop observable, keep the tooling grounded, and quantify efficiency against other LLMs.
 
 <img width="804" height="778" alt="Screenshot 2025-11-18 at 1 07 37 AM" src="https://github.com/user-attachments/assets/8061f809-1465-49da-a356-94efacf60152" />
 
