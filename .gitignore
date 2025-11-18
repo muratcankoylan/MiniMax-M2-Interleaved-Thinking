@@ -38,7 +38,10 @@ wheels/
 .DS_Store
 Thumbs.db
 
-# Demo logs (keep structure but ignore actual runs for clean repo)
+# Demo logs (ignore runtime runs but include example traces)
 demo_logs/*.jsonl
-!demo_logs/.gitkeep
+# Allow example logs
+!demo_logs/20251118-*.jsonl
+!demo_logs/example*.jsonl
+!demo_logs/sample*.jsonl
 
