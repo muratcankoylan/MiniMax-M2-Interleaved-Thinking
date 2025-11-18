@@ -191,6 +191,15 @@ Because these tools read real Markdown, editing the source docs immediately alte
 - **Different models:** swap `MINIMAX_MODEL` in `.env` to run the exact workflow on GLM/K2/Claude and compare logs.
 - **Visualization:** feed the JSONL trace into your favorite tooling (DAG viewer, metrics dashboards, etc.).
 - **Contribution ideas:** add test harnesses, integrate MCP servers, build a Streamlit or browser UI, or script head-to-head benchmarks.
+- Add new scenarios to `SCENARIOS` in `demo_runner.py`.
+- Register additional tools in `tools.py` and expose them through `build_tools_spec`.
+- Point the tool implementations at different documents if you want to showcase other workflows (API docs, test logs, etc.).
+
+This minimal surface keeps the **interleaved loop** visible while still exercising multiple tool calls grounded in the project’s own artifacts. Use it for demos or regression tests when you update your toolset.
+
+
+MiniMax-M2’s interleaved thinking thrives when we can show every decision, every tool call, and every dollar saved. This project keeps that loop visible—ready for open-source contributions, demos, and competitive benchmarks. Have fun building. 🙌
+
 
 ---
 
@@ -201,14 +210,3 @@ Contributions are welcome. Open an issue or PR if you want to add scenarios, too
 ## License
 
 MIT License - see [LICENSE](LICENSE) for details.
-
----
-
-- Add new scenarios to `SCENARIOS` in `demo_runner.py`.
-- Register additional tools in `tools.py` and expose them through `build_tools_spec`.
-- Point the tool implementations at different documents if you want to showcase other workflows (API docs, test logs, etc.).
-
-This minimal surface keeps the **interleaved loop** visible while still exercising multiple tool calls grounded in the project’s own artifacts. Use it for demos or regression tests when you update your toolset.
-
-
-MiniMax-M2’s interleaved thinking thrives when we can show every decision, every tool call, and every dollar saved. This project keeps that loop visible—ready for open-source contributions, demos, and competitive benchmarks. Have fun building. 🙌
